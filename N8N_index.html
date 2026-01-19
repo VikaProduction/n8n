@@ -1,1 +1,185 @@
-Du html, css et js
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>n8n - Automatisation Puissante</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>n8n</h1>
+      <nav>
+        <a href="#features">Fonctionnalités</a>
+        <a href="#about">À propos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="intro-text container" aria-label="Introduction">
+      <p>Automatisez vos tâches simplement et rapidement avec n8n.</p>
+    </section>
+
+    <section id="features" class="container" aria-label="Fonctionnalités principales">
+      <h2>Fonctionnalités</h2>
+      <ul>
+        <li>Connecteur facile à utiliser</li>
+        <li>Flux de travail personnalisés</li>
+        <li>Intégration de plus de 200 applications</li>
+        <li>Open Source et extensible</li>
+      </ul>
+      <button type="button">Commencez Maintenant</button>
+    </section>
+
+    <section id="about" class="container" aria-label="À propos de n8n">
+      <h2>À propos de n8n</h2>
+      <p>n8n est une plateforme d'automatisation conçue pour libérer votre productivité, avec une interface simple et intuitive.</p>
+    </section>
+
+    <section id="contact" class="container" aria-label="Contact">
+      <h2>Contactez-nous</h2>
+      <p>Questions ? Besoin d'aide ? Envoyez-nous un message.</p>
+      <form>
+        <label for="email">Email :</label>
+        <input id="email" name="email" type="email" required />
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      &copy; 2024 n8n - Tous droits réservés
+    </div>
+  </footer>
+</body>
+</html>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.intro-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a2a72;
+  text-align: center;
+  margin: 3rem 1rem 4rem;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.welcome-message {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50cc;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  z-index: 1000;
+}
+
+a {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+  color: #357ABD;
+  outline: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+header, footer {
+  background-color: #2a2a72;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+button {
+  background-color: #4a90e2;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, button:focus {
+  background-color: #357ABD;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: 1.6rem;
+    margin: 2rem 1rem 3rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  // Animation d'introduction texte
+  const introText = document.querySelector('.intro-text');
+  if(introText) {
+    introText.style.opacity = '0';
+    introText.style.transition = 'opacity 1.5s ease-in-out';
+    setTimeout(() => {
+      introText.style.opacity = '1';
+    }, 100);
+  }
+
+  // Fonction d'affichage d'un message dynamique
+  function showWelcomeMessage() {
+    const welcomeContainer = document.createElement('div');
+    welcomeContainer.className = 'welcome-message';
+    welcomeContainer.textContent = 'Bienvenue sur n8n, votre assistant d’automatisation puissant.';
+    document.body.prepend(welcomeContainer);
+
+    setTimeout(() => {
+      welcomeContainer.style.opacity = '0';
+      setTimeout(() => welcomeContainer.remove(), 600);
+    }, 4000);
+  }
+
+  showWelcomeMessage();
+
+  // Smooth scroll pour ancre(s)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+});
