@@ -1,1 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humble - T-shirts Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">HUMBLE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#shop">Boutique</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slide active" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1920') center/cover;">
+            <div class="hero-content">
+                <h1>Collection Été 2024</h1>
+                <p>Découvrez nos nouveaux t-shirts premium en coton biologique</p>
+                <a href="#shop" class="cta-button">Découvrir</a>
+            </div>
+        </div>
+        <div class="hero-slide" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1920') center/cover;">
+            <div class="hero-content">
+                <h1>Style Minimaliste</h1>
+                <p>L'élégance dans la simplicité</p>
+                <a href="#shop" class="cta-button">Shop Now</a>
+            </div>
+        </div>
+        <div class="hero-slide" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1920') center/cover;">
+            <div class="hero-content">
+                <h1>Qualité Premium</h1>
+                <p>Des matières nobles pour un confort exceptionnel</p>
+                <a href="#shop" class="cta-button">Voir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters" id="shop">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="men">Homme</button>
+        <button class="filter-btn" data-filter="women">Femme</button>
+        <button class="filter-btn" data-filter="kids">Enfant</button>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-grid">
+        <div class="product-card" data-category="men">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="T-shirt Homme Noir" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">T-shirt Essential Noir</h3>
+                <p class="product-price">29,90 €</p>
+                <button class="add-to-cart" data-product-id="1" data-product-name="T-shirt Essential Noir" data-product-price="29.90">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="men">
+            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600" alt="T-shirt Homme Blanc" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">T-shirt Classic Blanc</h3>
+                <p class="product-price">29,90 €</p>
+                <button class="add-to-cart" data-product-id="2" data-product-name="T-shirt Classic Blanc" data-product-price="29.90">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="women">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600" alt="T-shirt Femme Beige" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">T-shirt Femme Beige</h3>
+                <p class="product-price">32,90 €</p>
+                <button class="add-to-cart" data-product-id="3" data-product-name="T-shirt Femme Beige" data-product-price="32.90">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="women">
+            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600" alt="T-shirt Femme Rose" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">T-shirt Oversize Rose</h3>
+                <p class="product-price">34,90 €</p>
+                <button class="add-to-cart" data-product-id="4" data-product-name="T-shirt Oversize Rose" data-product-price="34.90">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="men">
+            <img src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=600" alt="T-shirt Homme Gris" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">T-shirt Premium Gris</h3>
+                <p class="product-price">35,90 €</p>
+                <button class="add-to-cart" data-product-id="5" data-product-name="T-shirt Premium Gris" data-product-price="35.90">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="kids">
+            <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600" alt="T-shirt Enfant Bleu" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">T-shirt Enfant Bleu</h3>
+                <p class="product-price">19,90 €</p>
+                <button class="add-to-cart" data-product-id="6" data-product-name="T-shirt Enfant Bleu" data-product-price="19.90">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="women">
+            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600" alt="T-shirt Femme Noir" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">T-shirt Crop Noir</h3>
+                <p class="product-price">27,90 €</p>
+                <button class="add-to-cart" data-product-id="7" data-product-name="T-shirt Crop Noir" data-product-price="27.90">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="kids">
+            <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600" alt="T-shirt Enfant Rouge" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">T-shirt Enfant Rouge</h3>
+                <p class="product-price">19,90 €</p>
+                <button class="add-to-cart" data-product-id="8" data-product-name="T-shirt Enfant Rouge" data-product-price="19.90">Ajouter au panier</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="collections">
+        <div class="feature-item">
+            <div class="feature-icon">🌱</div>
+            <h3>Coton Bio</h3>
+            <p>100% coton biologique certifié pour un confort optimal</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🚚</div>
+            <h3>Livraison Gratuite</h3>
+            <p>Livraison offerte dès 50€ d'achat partout en France</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">♻️</div>
+            <h3>Éco-responsable</h3>
+            <p>Production éthique et respectueuse de l'environnement</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✨</div>
+            <h3>Qualité Premium</h3>
+            <p>Des t-shirts durables conçus pour durer dans le temps</p>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Rejoignez la communauté Humble</h2>
+        <p>Inscrivez-vous à notre newsletter et recevez 10% de réduction sur votre première commande</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Votre adresse email" required>
+            <button type="submit">S'inscrire</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HUMBLE</h3>
+                <p>Des t-shirts premium pour un style humble et authentique.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#shop">Boutique</a></li>
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#about">À propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Aide</h3>
+                <ul>
+                    <li><a href="#">Livraison</a></li>
+                    <li><a href="#">Retours</a></li>
+                    <li><a href="#">Guide des tailles</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: contact@humble.com</li>
+                    <li>Tél: 01 23 45 67 89</li>
+                    <li>Instagram: @humble</li>
+                    <li>Facebook: Humble</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Humble. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
