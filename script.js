@@ -1,203 +1,135 @@
 // script.js
 
-
-// Navigation mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-
-if (menuToggle) {
-menuToggle.addEventListener('click', () => {
-navLinks.classList.toggle('active');
-});
-}
-
-
-// Slider hero
-let currentSlide = 0;
-const slides = document.querySelectorAll('.hero-slide');
-const totalSlides = slides.length;
-
-
-function showSlide(index) {
-slides.forEach((slide, i) => {
-slide.classList.remove('active');
-if (i === index) {
-slide.classList.add('active');
-}
-});
-}
-
-
-function nextSlide() {
-currentSlide = (currentSlide + 1) % totalSlides;
-showSlide(currentSlide);
-}
-
-
-function prevSlide() {
-currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-showSlide(currentSlide);
-}
-
-
-if (slides.length > 0) {
-setInterval(nextSlide, 5000);
-}
-
-
-// Filtres produits
-const filterButtons = document.querySelectorAll('.filter-btn');
-const productCards = document.querySelectorAll('.product-card');
-
-
-filterButtons.forEach(button => {
-button.addEventListener('click', () => {
-const filter = button.dataset.filter;
-
-
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+// Animation smooth scroll pour navigation
+document.addEventListener('DOMContentLoaded', function() {
     
-    productCards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
+    // Gestion du menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+    }
+    
+    // Animation au scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+    const elementsToAnimate = document.querySelectorAll('.product-card, .hero-content');
+    
+    elementsToAnimate.forEach(el => observer.observe(el));
+    
+    // Gestion du panier
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(btn => {
+        btn.addEventListener('click', addToCart);
+    });
+    
+    // Header au scroll
+    window.addEventListener('scroll', handleHeaderScroll);
+});
+
+function toggleMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    navMenu.classList.toggle('active');
+}
+
+function animateOnScroll(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
         }
     });
-});
+}
 
-});
+function addToCart(event) {
+    const button = event.currentTarget;
+    const productCard = button.closest('.product-card');
+    const productName = productCard.querySelector('.product-name').textContent;
+    const productPrice = productCard.querySelector('.product-price').textContent;
+    
+    // Animation feedback
+    button.classList.add('added');
+    button.textContent = 'Ajouté !';
+    
+    setTimeout(() => {
+        button.classList.remove('added');
+        button.textContent = 'Ajouter au panier';
+    }, 2000);
+    
+    // Stockage panier (localStorage)
+    updateCart(productName, productPrice);
+    showNotification(`${productName} ajouté au panier`);
+}
 
-
-// Ajout au panier
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+function updateCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, quantity: 1 });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
 
 function updateCartCount() {
-const cartCount = document.querySelector('.cart-count');
-if (cartCount) {
-cartCount.textContent = cart.length;
-}
-}
-
-
-function saveCart() {
-localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-
-addToCartButtons.forEach(button => {
-button.addEventListener('click', (e) => {
-const productId = button.dataset.productId;
-const productName = button.dataset.productName;
-const productPrice = button.dataset.productPrice;
-
-
-    cart.push({
-        id: productId,
-        name: productName,
-        price: productPrice
-    });
-    
-    saveCart();
-    updateCartCount();
-    showAddedToCartMessage();
-});
-
-});
-
-
-function showAddedToCartMessage() {
-const message = document.createElement('div');
-message.className = 'cart-notification';
-message.textContent = 'Produit ajouté au panier !';
-document.body.appendChild(message);
-
-
-setTimeout(() => {
-    message.remove();
-}, 2000);
-
-}
-
-
-// Scroll animations
-const observerOptions = {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
-};
-
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-}
-});
-}, observerOptions);
-
-
-document.querySelectorAll('.product-card, .feature-item').forEach(el => {
-observer.observe(el);
-});
-
-
-// Formulaire newsletter
-const newsletterForm = document.querySelector('.newsletter-form');
-
-
-if (newsletterForm) {
-newsletterForm.addEventListener('submit', (e) => {
-e.preventDefault();
-const email = newsletterForm.querySelector('input[type="email"]').value;
-
-
-    showNewsletterSuccess();
-    newsletterForm.reset();
-});
-
-}
-
-
-function showNewsletterSuccess() {
-const message = document.createElement('div');
-message.className = 'newsletter-success';
-message.textContent = 'Merci pour votre inscription !';
-document.body.appendChild(message);
-
-
-setTimeout(() => {
-    message.remove();
-}, 3000);
-
-}
-
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-target.scrollIntoView({
-behavior: 'smooth',
-block: 'start'
-});
-
-
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCount = document.querySelector('.cart-count');
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+        if (cart.length > 0) {
+            cartCount.classList.add('active');
         }
     }
-});
+}
 
-});
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => notification.classList.add('show'), 100);
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
 
+function handleHeaderScroll() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+}
 
-// Initialisation au chargement
-document.addEventListener('DOMContentLoaded', () => {
-updateCartCount();
-});
+// Filtre produits
+function filterProducts(category) {
+    const products = document.querySelectorAll('.product-card');
+    
+    products.forEach(product => {
+        if (category === 'all' || product.dataset.category === category) {
+            product.style.display = 'block';
+            setTimeout(() => product.classList.add('fade-in'), 100);
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+// Recherche produits
+function searchProducts(query) {
+    const products = document.querySelectorAll('.product-card');
+    const searchTerm = query.toLowerCase();
+    
+    products.forEach(product => {
+        const productName = product.querySelector('.product-name').textContent.toLowerCase();
+        if (productName.includes(searchTerm)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
