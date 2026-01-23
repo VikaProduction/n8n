@@ -15,12 +15,12 @@
                 <li><a href="#products">Produits</a></li>
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="cart-icon">
-                    🛒
-                    <span class="cart-count">0</span>
-                </li>
             </ul>
         </nav>
+        <div class="cart-icon">
+            🛒
+            <span class="cart-count">0</span>
+        </div>
         <div class="menu-toggle">
             <span></span>
             <span></span>
@@ -39,7 +39,7 @@
             <h2 class="section-title">Nos T-shirts</h2>
             <div class="products-grid">
                 <div class="product-card" data-category="homme">
-                    <img src="https://images.unsplash.com/photo-1521572613990-6f3ee90dc8e8?w=400" alt="T-shirt Noir" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1521572613993-6f3ee90dc8e8?w=400" alt="T-shirt Noir" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Essential Black</h3>
                         <p class="product-price">29,99€</p>
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="product-card" data-category="homme">
-                    <img src="https://images.unsplash.com/photo-1576566588620-41445f74c3b9?w=400" alt="T-shirt Navy" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1576566588620-41445f74c36b?w=400" alt="T-shirt Navy" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Navy Blue</h3>
                         <p class="product-price">29,99€</p>
@@ -93,10 +93,41 @@
                 </div>
             </div>
         </section>
+
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <h2 class="section-title">À propos de Humble</h2>
+                <p class="about-text">Chez Humble, nous croyons en la simplicité et la qualité. Nos t-shirts sont fabriqués à partir de coton biologique premium, conçus pour durer et vous accompagner au quotidien.</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">🌿</span>
+                        <h3>Coton Biologique</h3>
+                        <p>100% coton bio certifié</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✂️</span>
+                        <h3>Coupe Parfaite</h3>
+                        <p>Design moderne et confortable</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🌍</span>
+                        <h3>Éco-responsable</h3>
+                        <p>Production éthique et durable</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Humble. Tous droits réservés.</p>
+        <div class="footer-content">
+            <p>&copy; 2024 Humble. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">CGV</a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
