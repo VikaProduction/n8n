@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,88 +9,88 @@
 <body>
     <header>
         <div class="logo">HUMBLE</div>
-        <nav>
-            <ul class="nav-menu">
+        <nav class="nav-menu">
+            <ul class="nav-menu-list">
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#products">Produits</a></li>
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <div class="cart-icon">
+        <div class="cart-icon" aria-label="Ouvrir le panier" role="button" tabindex="0">
             🛒
             <span class="cart-count">0</span>
         </div>
-        <div class="menu-toggle">
+        <button class="menu-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="primary-navigation">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
     </header>
 
     <main>
         <section id="home" class="hero-content">
             <h1>Style Humble.<br>Qualité Premium.</h1>
-            <p>Découvrez notre collection de t-shirts minimalistes conçus pour durer</p>
+            <p>Découvrez notre collection de t-shirts minimalistes conçus pour durer. Confort, style et durabilité réunis dans chaque pièce.</p>
             <a href="#products" class="cta-button">Découvrir la collection</a>
         </section>
 
         <section id="products" class="products-section">
             <h2 class="section-title">Nos T-shirts</h2>
             <div class="products-grid">
-                <div class="product-card" data-category="homme">
+                <article class="product-card" data-category="homme">
                     <img src="https://images.unsplash.com/photo-1521572613993-6f3ee90dc8e8?w=400" alt="T-shirt Noir" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Essential Black</h3>
                         <p class="product-price">29,99€</p>
                         <button class="add-to-cart">Ajouter au panier</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="product-card" data-category="homme">
+                <article class="product-card" data-category="homme">
                     <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400" alt="T-shirt Blanc" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Pure White</h3>
                         <p class="product-price">29,99€</p>
                         <button class="add-to-cart">Ajouter au panier</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="product-card" data-category="femme">
+                <article class="product-card" data-category="femme">
                     <img src="https://images.unsplash.com/photo-1562157873-3fbf463e2f22?w=400" alt="T-shirt Gris" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Stone Grey</h3>
                         <p class="product-price">29,99€</p>
                         <button class="add-to-cart">Ajouter au panier</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="product-card" data-category="homme">
+                <article class="product-card" data-category="homme">
                     <img src="https://images.unsplash.com/photo-1622445873496-6ba6b65b6fbc?w=400" alt="T-shirt Beige" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Sand Beige</h3>
                         <p class="product-price">29,99€</p>
                         <button class="add-to-cart">Ajouter au panier</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="product-card" data-category="femme">
-                    <img src="https://images.unsplash.com/photo-1618835173246-d83b2b32d9b5?w=400" alt="T-shirt Olive" class="product-image">
+                <article class="product-card" data-category="femme">
+                    <img src="https://images.unsplash.com/photo-1618835179139-d83b2b32d9b5?w=400" alt="T-shirt Olive" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Olive Green</h3>
                         <p class="product-price">29,99€</p>
                         <button class="add-to-cart">Ajouter au panier</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="product-card" data-category="homme">
-                    <img src="https://images.unsplash.com/photo-1576566588620-41445f74c36b?w=400" alt="T-shirt Navy" class="product-image">
+                <article class="product-card" data-category="homme">
+                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400" alt="T-shirt Bleu" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Navy Blue</h3>
                         <p class="product-price">29,99€</p>
                         <button class="add-to-cart">Ajouter au panier</button>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
@@ -100,19 +100,19 @@
                 <p class="about-text">Chez Humble, nous croyons en la simplicité et la qualité. Nos t-shirts sont fabriqués à partir de coton biologique premium, conçus pour durer et vous accompagner au quotidien.</p>
                 <div class="features">
                     <div class="feature">
-                        <span class="feature-icon">🌿</span>
+                        <span class="feature-icon">🌱</span>
                         <h3>Coton Biologique</h3>
-                        <p>100% coton bio certifié</p>
+                        <p>100% coton bio certifié.</p>
                     </div>
                     <div class="feature">
-                        <span class="feature-icon">✂️</span>
+                        <span class="feature-icon">👌</span>
                         <h3>Coupe Parfaite</h3>
-                        <p>Design moderne et confortable</p>
+                        <p>Design moderne et confortable.</p>
                     </div>
                     <div class="feature">
-                        <span class="feature-icon">🌍</span>
+                        <span class="feature-icon">♻️</span>
                         <h3>Éco-responsable</h3>
-                        <p>Production éthique et durable</p>
+                        <p>Production éthique et durable.</p>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
             <p>&copy; 2024 Humble. Tous droits réservés.</p>
             <div class="footer-links">
                 <a href="#">Mentions légales</a>
-                <a href="#">Politique de confidentialité</a>
+                <a href="#">Confidentialité</a>
                 <a href="#">CGV</a>
             </div>
         </div>
